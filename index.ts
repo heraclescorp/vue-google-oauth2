@@ -8,7 +8,7 @@ const googleAuth = ((): any => {
 
   const installClient = () => {
     const apiUrl = 'https://apis.google.com/js/api.js';
-    return new Promise((resolve) => {
+    return new Promise<any>((resolve) => {
       const script: any = document.createElement('script');
       script.src = apiUrl;
       script.onreadystatechange = script.onload = () => {
@@ -23,7 +23,7 @@ const googleAuth = ((): any => {
   };
 
   const initClient = (config: any) => {
-    return new Promise((resolve, reject) => {
+    return new Promise<any>((resolve, reject) => {
       window.gapi.load('auth2', () => {
         window.gapi.auth2.init(config)
           .then(() => {
@@ -62,7 +62,7 @@ const googleAuth = ((): any => {
     };
 
     this.signIn = (successCallback: any, errorCallback: any) => {
-      return new Promise((resolve, reject) => {
+      return new Promise<any>((resolve, reject) => {
         if (!this.GoogleAuth) {
           if (typeof errorCallback === 'function') {
             errorCallback(false);
@@ -88,7 +88,7 @@ const googleAuth = ((): any => {
     };
 
     this.getAuthCode = (successCallback: any, errorCallback: any) => {
-      return new Promise((resolve, reject) => {
+      return new Promise<any>((resolve, reject) => {
         if (!this.GoogleAuth) {
           if (typeof errorCallback === 'function') {
             errorCallback(false);
@@ -113,7 +113,7 @@ const googleAuth = ((): any => {
     };
 
     this.signOut = (successCallback: any, errorCallback: any) => {
-      return new Promise((resolve, reject) => {
+      return new Promise<any>((resolve, reject) => {
         if (!this.GoogleAuth) {
           if (typeof errorCallback === 'function') {
             errorCallback(false);
